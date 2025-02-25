@@ -100,14 +100,14 @@ public class DriverFactory {
 		try {
 
 			if (envName == null) {
-				fi = new FileInputStream("./src/test/resource/config/config.properties");
+				fi = new FileInputStream("./src/test/resources/config/config.properties");
 			} else {
 				switch (envName.toLowerCase().trim()) {
 				case "qa":
-					fi = new FileInputStream("./src/test/resource/config/qa.config.properties");
+					fi = new FileInputStream("./src/test/resources/config/qa.config.properties");
 					break;
 				case "production":
-					fi = new FileInputStream("./src/test/resource/config/config.properties");
+					fi = new FileInputStream("./src/test/resources/config/config.properties");
 					break;
 
 				default:
