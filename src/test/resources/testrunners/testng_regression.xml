@@ -30,13 +30,13 @@
 		<classes>
 			<class name="com.qa.opencart.tests.AccountsPageTest" />
 		</classes>
-    </test>
+    </test> --> 
     <test name="ProductInfoTest ">
     	<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class name="com.qa.opencart.tests.ProductInfoTest" />
 		</classes>
-    </test> --> 
+    </test> 
 
 
 </suite>
