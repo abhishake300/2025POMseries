@@ -29,14 +29,16 @@ public class BaseTest {
 	protected RegistrationPage registrationPage;
 	protected Properties prop;
 
-	@Parameters({"browser"})
+	@Parameters({"browser","browserversion","testname"})
 	@BeforeTest
-	public void setup(@Optional("chrome")  String browserName) {
+	public void setup(@Optional("chrome")  String browserName,String browserversion,String testname) {
 		df = new DriverFactory();
 		prop = df.initProp();
 		
 		if(browserName!=null) {
 			prop.setProperty("browser", browserName);
+			prop.setProperty("browserversion", browserversion);
+			prop.setProperty("testname", testname);
 		}
 
 		driver = df.initdriver(prop);
