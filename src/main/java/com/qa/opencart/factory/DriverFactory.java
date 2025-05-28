@@ -20,6 +20,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import com.qa.opencart.errors.AppError;
 import com.qa.opencart.exceptions.BrowserException;
 import com.qa.opencart.exceptions.FrameworkException;
+import com.qa.opencart.logger.Log;
 
 public class DriverFactory {
 
@@ -46,7 +47,9 @@ public class DriverFactory {
 		optionsmanager = new OptionsManager(prop);
 
 		String BrowserName = prop.getProperty("browser");
-		System.out.println("The Browser passed is  :" + BrowserName);
+		
+		//System.out.println("The Browser passed is  :" + BrowserName);
+		Log.info(prop.getProperty("test name")+" and browser name is : "  + BrowserName);
 
 		isHighlight = prop.getProperty("highlight");
 
@@ -82,7 +85,8 @@ public class DriverFactory {
 			break;
 			
 		default:
-			System.out.println(AppError.INVALID_BROWSER_MESG + BrowserName + "is invalid");
+			//System.out.println(AppError.INVALID_BROWSER_MESG + BrowserName + "is invalid");
+			Log.error(AppError.INVALID_BROWSER_MESG + BrowserName + "is invalid");
 			throw new BrowserException(AppError.INVALID_BROWSER_MESG);
 
 		}
@@ -99,7 +103,8 @@ public class DriverFactory {
 	 * REMOTE WEBDRIVER CLASS To connect to selenium grid and run on docker
 	 */
 	private void init_remotedriver(String BrowserName) {
-		System.out.println("Running on selenium grid" + BrowserName);
+		//System.out.println("Running on selenium grid" + BrowserName);
+		Log.info("Running on selenium grid" +BrowserName);
 
 		try {
 
@@ -148,11 +153,13 @@ public class DriverFactory {
 		FileInputStream fi = null;
 
 		String envName = System.getProperty("env");
-		System.out.println("Running test on environment  :" + envName);
+		//System.out.println("Running test on environment  :" + envName);
+		Log.info("Running test on environment  :" + envName);
 
 		try {
 
 			if (envName == null) {
+				Log.warn("you are not passing any value hence moving with default");
 				fi = new FileInputStream("./src/test/resources/config/config.properties");
 			} else {
 				switch (envName.toLowerCase().trim()) {
@@ -164,7 +171,8 @@ public class DriverFactory {
 					break;
 
 				default:
-					System.out.println("please pass the right env name" + envName);
+					//System.out.println("please pass the right env name" + envName);
+					Log.error("please pass the right env name" + envName);
 					throw new FrameworkException("INVALID ENVIRONMENT");
 
 				}

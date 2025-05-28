@@ -20,6 +20,13 @@
  <maven.compiler.target>11</maven.compiler.target>
  <java.version>18</java.version>
   </properties>
+  
+  <distributionManagement>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>http://admin:test123@localhost:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
   <dependencies>
 
@@ -83,6 +90,16 @@
 			<artifactId>allure-testng</artifactId>
 			<version>2.23.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.24.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>5.9</version>
+		</dependency>
 
 
 	</dependencies>
@@ -131,11 +148,11 @@
 			</plugin>
 
 
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId> 
+			 <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId> 
 				<version>3.3.0</version> <configuration> <descriptorRefs> <descriptorRef>jar-with-dependencies</descriptorRef> 
 				</descriptorRefs> </configuration> <executions> <execution> <id>make-assembly</id> 
 				<phase>package</phase> <goals> <goal>single</goal> </goals> </execution> 
-				</executions> </plugin> -->
+				</executions> </plugin>
 
 
 			<plugin>

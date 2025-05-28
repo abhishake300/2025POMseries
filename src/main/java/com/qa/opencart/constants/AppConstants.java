@@ -23,6 +23,8 @@ public class AppConstants {
 	public static final String USER_REG_SUCCESS_MESSG = "Your Account Has Been Created!";
 	public static final String REGISTER_SHEET_NAME = "x";
 	
+	public static final String LOGIN_ERROR_MESG ="Warning: No match for E-Mail Address and/or Password.";
+	
 
 
 }

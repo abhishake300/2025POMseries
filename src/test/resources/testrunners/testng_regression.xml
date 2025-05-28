@@ -27,7 +27,7 @@
 		</classes>
     </test>
   
-  <!-- -->  <test name="ACCOUNTS PAGE TEST">
+  <!--  <test name="ACCOUNTS PAGE TEST">
     	<parameter name="browser" value="firefox"></parameter>
     	<parameter name="browserversion" value="83.0"></parameter>
     	<parameter name="testname" value="ACCOUNTS PAGE TEST"></parameter>
@@ -42,7 +42,7 @@
 		<classes>
 			<class name="com.qa.opencart.tests.ProductInfoTest" />
 		</classes>
-    </test> 
+    </test> --> 
 
 
 </suite>

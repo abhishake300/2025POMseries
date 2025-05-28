@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.qa.opencart.constants.AppConstants;
+import com.qa.opencart.logger.Log;
 import com.qa.opencart.utils.ElementUtil;
 
 public class LoginPage {
@@ -18,6 +19,7 @@ public class LoginPage {
 	private By ForgotPasswordLink = By.linkText("Forgotten Password");
 	private By RegisterLink = By.linkText("Register");
 	private By logo = By.cssSelector("img.img-responsive");
+	private By loginErrorMesg=By.cssSelector("div.alert.alert-danger.alert-dismissible");
 
 	// 2.public page constructors
 	public LoginPage(WebDriver driver) {
@@ -60,6 +62,26 @@ public class LoginPage {
 //        return AccPageTitle;
 		
 		 return new AccountsPage(driver);
+	}
+	
+public boolean doInvalidLogin(String email, String pwd) {
+		
+		eleutil.WaitforElementVisible(EmailId,AppConstants.SHORT_TIME_OUT);
+		eleutil.doSendkeys(EmailId, email);
+		eleutil.doSendkeys(Password, pwd);
+//		driver.findElement(EmailId).sendKeys(email);
+//		driver.findElement(Password).sendKeys(pwd);
+		eleutil.doClick(LoginBtn);
+//		driver.findElement(LoginBtn).click();
+//        String AccPageTitle= driver.getTitle();
+//        System.out.println("Account page title is"+AccPageTitle);
+//        return AccPageTitle;
+		String errormesg=eleutil.WaitforElementVisible(loginErrorMesg, AppConstants.SHORT_TIME_OUT).getText();
+		Log.error("Login error ---->"+errormesg);
+		if(errormesg.contains(AppConstants.LOGIN_ERROR_MESG)) {
+			return true;
+		}else
+			return false;
 	}
 	
 	public RegistrationPage navigateToRegisterPage() {

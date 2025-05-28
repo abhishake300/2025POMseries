@@ -45,7 +45,7 @@ public class ElementUtil {
 	}
 
 	public void doSendkeys(By locator, String value) {
-
+		getElement(locator).clear();
 		getElement(locator).sendKeys(value);
 
 	}
