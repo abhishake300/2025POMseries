@@ -20,7 +20,7 @@
 	</listeners>
 	<test name="LOGIN TEST">
 	<parameter name="browser" value="chrome"></parameter>
-	<parameter name="browserversion" value="109.0"></parameter>
+	<parameter name="browserversion" value="91.0"></parameter>
 	<parameter name="testname" value="LOGIN TEST"></parameter>
 		<classes>
 			<class name="com.qa.opencart.tests.LoginPageTest" />
